@@ -1,5 +1,5 @@
-import React from "react";
 import NumberInput from "./NumberInput";
+import { TiCalculator } from "react-icons/ti";
 import RadioInput from "./RadioInput";
 import { Values } from "./Main";
 
@@ -7,17 +7,19 @@ const Calculator = ({
   dateLeaveCommence,
   daysApplied,
   otherDeduction,
-  stuffType,
   yearOfLastLeave,
   outStandingDays,
   setValue,
   submitHandler,
+  setResultToggler,
 }: Values & {
   setValue: React.Dispatch<React.SetStateAction<Values>>;
+  setResultToggler: React.Dispatch<React.SetStateAction<boolean>>;
   submitHandler: (e: React.FormEvent<HTMLButtonElement>) => void;
 }) => {
   const reset = () => {
-    setValue((e) => {
+    setResultToggler(false);
+    setValue(() => {
       return {
         daysApplied: "",
         dateLeaveCommence: "",
@@ -117,6 +119,7 @@ const Calculator = ({
             className="btn bg-[#000066] text-white text-lg w-[60%] hover:bg-[#020246] "
             onClick={submitHandler}
           >
+            <TiCalculator className="size-6" />
             Calculate
           </button>
         </div>

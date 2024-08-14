@@ -7,14 +7,12 @@ interface OutstandingDayProp {
 }
 
 export const outstandingDays = (info: OutstandingDayProp) => {
-  const {
-    yearOfLastLeave,
-    outStandingDays,
-    stuffType,
-    daysApplied,
-    otherDeductions,
-  } = info;
+  const { yearOfLastLeave, outStandingDays, stuffType, daysApplied } = info;
   console.log(info);
+
+  info.otherDeductions === ""
+    ? (info.otherDeductions = "0")
+    : (info.otherDeductions = info.otherDeductions);
 
   //   const yearOfLastLeave = 2023;
   const currentYear = new Date().getFullYear();
@@ -30,7 +28,7 @@ export const outstandingDays = (info: OutstandingDayProp) => {
     const result =
       totalYearLeave +
       parseInt(outStandingDays) -
-      (parseInt(daysApplied) + parseInt(otherDeductions));
+      (parseInt(daysApplied) + parseInt(info.otherDeductions));
     return result;
   }
   if (stuffType === "JJ") {
@@ -40,7 +38,7 @@ export const outstandingDays = (info: OutstandingDayProp) => {
     const result =
       totalYearLeave +
       parseInt(outStandingDays) -
-      parseInt(daysApplied + otherDeductions);
+      (parseInt(daysApplied) + parseInt(info.otherDeductions));
     return result;
   }
 };
