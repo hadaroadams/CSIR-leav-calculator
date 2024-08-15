@@ -19,7 +19,6 @@ const NumberInput = ({
   type,
   discre,
 }: NumberInputProps) => {
-  
   return (
     <div className=" text-[#000066] space-y-1">
       <label htmlFor="" className="text-[0.8em] sm:text-[1em] ">
@@ -36,7 +35,7 @@ const NumberInput = ({
           type={type}
           placeholder={placeHolder}
           min={0}
-          className="input input-bordered input-secondary  px-7 z-20 bg-transparent  w-full  text-end text-[#000066] h-10 sm:text-[1em] text-[0.7em]  "
+          className="input input-bordered input-secondary  pr-7 pl-10 z-20 bg-transparent  w-full  text-end text-[#000066] h-10 sm:text-[1.3em] text-[1em]  "
         />
       </div>
     </div>
